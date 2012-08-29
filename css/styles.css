@@ -1,0 +1,27 @@
+/* Styles for the Ekklesia Importer */
+
+.js .ekklesia_importer_no_js { display: none; }
+.no-js .ekklesia_importer_no_js { display: block; }
+
+#ekklesia_importer_error, #ekklesia_importer_notice, #ekklesia_importer_success { font-size: 15px; display : none; padding: 10px;}
+#ekklesia_importer_success { background-color: #e0ffec; border-color: green; }
+
+.ekklesia_importer_page_indicator {}
+.ekklesia_importer_page_indicator ul li {display: inline;}
+.ekklesia_importer_page_indicator ul li.selected { font-weight: bold; }
+
+#ekklesia_importer_lock { display: none; }
+
+#ekklesia_importer_welcome { display: none; }
+
+#ekklesia_importer_requirements, #ekklesia_importer_requirements_report { display: none; }
+
+#ekklesia_importer_options { display: none; }
+#ekklesia_importer_mm_options { display: none; }
+
+#ekklesia_importer_import { display: none; }
+
+#ekklesia_importer_buttons input { display: none; }
+
+#ekklesia_importer_indicator_img { vertical-align: text-bottom; height: 16px; width: 16px; }
+#ekklesia_importer_indicator_text { font-weight: bold; font-size: 16px; }
