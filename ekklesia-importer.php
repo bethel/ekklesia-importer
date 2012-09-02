@@ -921,26 +921,29 @@ class Ekklesia_Importer {
 				
 				// we need the attachment id for images.
 				$attachment_id = $this->sideload_attachment($media_url, $post_id, null, false);
-				$attachment_url = wp_get_attachment_url($attachment_id);
 				
-				if (!empty($attachment_url)) {
-					switch($media_type) {
-						case 'series image':
-							Message_Manager::set_series_image($series_id, $attachment_id);
-							break;
-						case 'audio':
-							Message_Manager::set_message_audio($post_id, $attachment_url);
-							break;
-						case 'video':
-							Message_Manager::set_message_video($post_id, 'url', $attachment_url);
-							break;
-						case 'image':
-							Message_Manager::set_message_image($post_id, $attachment_id);
-							break;
-						case 'notes':
-							$title = $this->get_import_option('default_note_title', 'Message Notes');
-							Message_Manager::add_message_attachment($post_id, $attachment_url, $title);
-							break;
+				if(is_numeric($attachment_id)) {
+					$attachment_url = wp_get_attachment_url($attachment_id);
+					
+					if (!empty($attachment_url)) {
+						switch($media_type) {
+							case 'series image':
+								Message_Manager::set_series_image($series_id, $attachment_id);
+								break;
+							case 'audio':
+								Message_Manager::set_message_audio($post_id, $attachment_url);
+								break;
+							case 'video':
+								Message_Manager::set_message_video($post_id, 'url', $attachment_url);
+								break;
+							case 'image':
+								Message_Manager::set_message_image($post_id, $attachment_id);
+								break;
+							case 'notes':
+								$title = $this->get_import_option('default_note_title', 'Message Notes');
+								Message_Manager::add_message_attachment($post_id, $attachment_url, $title);
+								break;
+						}
 					}
 				}
 				
