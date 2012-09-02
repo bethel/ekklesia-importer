@@ -874,7 +874,7 @@ class Ekklesia_Importer {
 					Message_Manager::set_message_date($post_id, $date_parts[0]);
 				}
 				if (!empty($video_embed)) {
-					Message_Manager::add_message_media($post_id, 'embedded', $video_embed);	
+					Message_Manager::set_message_video($post_id, 'embedded', $video_embed);
 				}
 
 				// calculate the rest of the actions for the message
@@ -926,19 +926,20 @@ class Ekklesia_Importer {
 				if (!empty($attachment_url)) {
 					switch($media_type) {
 						case 'series image':
-							Message_Manager::set_series_image($series_id, $attachment_url);
+							Message_Manager::set_series_image($series_id, $attachment_id);
 							break;
 						case 'audio':
+							Message_Manager::set_message_audio($post_id, $attachment_url);
+							break;
 						case 'video':
-							Message_Manager::add_message_media($post_id, 'upload', $attachment_url);
+							Message_Manager::set_message_video($post_id, 'url', $attachment_url);
 							break;
 						case 'image':
 							Message_Manager::set_message_image($post_id, $attachment_id);
 							break;
 						case 'notes':
 							$title = $this->get_import_option('default_note_title', 'Message Notes');
-							wp_update_post(array('ID'=>$attachment_id, 'post_title'=>$title));
-							Message_Manager::add_message_attachment($post_id, 'upload', $attachment_url);
+							Message_Manager::add_message_attachment($post_id, $attachment_url, $title);
 							break;
 					}
 				}
