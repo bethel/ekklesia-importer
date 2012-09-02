@@ -2,7 +2,7 @@
 /*
 Plugin Name: Ekklesia 360 Importer
 Description: Import pages and articles from an Ekklesia 360 site. Automatically imports images and other attachments to the Wordpress media library. The import of sermons is also possible of Message Manager is install.
-Version: 1.0.0
+Version: 1.0.1
 Author: Chris Roemmich
 Author URI: https://cr-wd.com
 License: MIT
@@ -11,7 +11,7 @@ License: MIT
 class Ekklesia_Importer {
 	
 	/** the ekklesia version */
-	static $version = '1.0.0';
+	static $version = '1.0.1';
 	
 	/** prefix for meta and option values */
 	static $prefix = 'ekklesia_importer_';
